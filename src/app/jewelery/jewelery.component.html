@@ -1,0 +1,62 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row mt-3">
+      <div class="col d-flex justify-content-end">
+      <select [(ngModel)]="selectedCurrency" (change)="updateCurrency($event)">
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+      </select>
+      </div>
+  </div>
+  <div *ngFor="let item of data">
+      <div class="row mt-5 d-flex justify-content-center">
+          <div class="col-sm-10 col-12 col-lg-9">
+              <div class="row mt-5">
+                  <div class="col">
+                      <div class="card">
+                          <div class="card-body">
+                              <div class="row">
+                                  <div class="col">
+                                      <small class="d-flex justify-content-end text-danger">
+                                          {{ convertPrice(item.price) | currency:selectedCurrency:'symbol':'1.2-2' }}
+                                      </small>
+                                      <div class="row">
+                                          <div class="col">
+                                              <a class="btn btn-info text-center" [routerLink]="['/detils',item.id]"> Details </a>
+                                          </div>
+                                          <div class="col">
+                                              <button class="btn btn-info text-center">Buy Now</button>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-8">
+                                      <small class="d-flex justify-content-end text-danger">{{ item.title }}</small>
+                                      <small class="d-flex justify-content-end start">{{ item.description }}</small>
+                                  </div>
+                                  <div class="col-sm-2 col-5 col-lg-2 d-flex justify-content-end">
+                                      <img [src]="item.image" width="80" height="80" alt="image">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<p></p>
+<div class="row">
+    <p></p>
+    <div class="row">
+        <p></p>
+        <div class="row">
+            <p></p>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

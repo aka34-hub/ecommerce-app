@@ -1,0 +1,82 @@
+<app-header></app-header>
+
+<!-- Currency Dropdown -->
+<div class="container-fluid text-center text-white" style="background: url('https://img.freepik.com/free-vector/smart-fridge-two-chambered-refrigerator-front-view_107791-2056.jpg?ga=GA1.1.711391177.1732371834&semt=ais_hybrid') no-repeat center center/cover; padding: 50px 0;" width="50%" height="50%">
+    <h3 class="text-white">Welcome to the Online Appliance Store</h3>
+    <h4 class="lead">Your one-stop shop for quality appliances</h4>
+    <button class="btn btn-primary">Shop Now</button>
+    <div class="mt-3">
+        <select [(ngModel)]="selectedCurrency" (change)="updateCurrency($event)">
+            <option value="USD">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+        </select>
+    </div>
+</div>
+
+<div class="container-fluid d-flex flex-column align-items-center" style="background: url('https://img.freepik.com/free-vector/vector-isometric-abstract-illustration-smart-home-controlling-through-internet-home-work-equipment_1441-245.jpg?ga=GA1.1.711391177.1732371834&semt=ais_hybrid') no-repeat center center/cover; padding: 100px 0;">
+    <!-- Featured Categories Section -->
+    <div class="card mt-5 shadow-lg" style="width: 900px; background-color: rgba(255, 255, 255, 0.555); border-radius: 15px;">
+        <div class="card-body text-center">
+            <h2 class="mb-4 text-dark fw-bold">Item Categories</h2>
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col mt-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="row mt-4">
+                                <div class="col d-flex flex-column align-items-center">
+                                    <i class="fa fa-television text-danger" aria-hidden="true" style="font-size:80px;"></i>
+                                    <h5 class="mt-2"><a routerLink="electronics" class="text-dark text-decoration-none">{{data[0]}}</a></h5>
+                                </div>
+                                <div class="col d-flex flex-column align-items-center">
+                                    <i class="fa fa-diamond text-primary" aria-hidden="true" style="font-size:80px;"></i>
+                                    <h5 class="mt-2"><a routerLink="jewelery" class="text-dark text-decoration-none">{{data[1]}}</a></h5>
+                                </div>
+                                <div class="col d-flex flex-column align-items-center">
+                                    <i class="fa fa-male text-info" aria-hidden="true" style="font-size:80px;"></i>
+                                    <h5 class="mt-2"><a routerLink="mensclothing" class="text-dark text-decoration-none">{{data[2]}}</a></h5>
+                                </div>
+                                <div class="col d-flex flex-column align-items-center">
+                                    <i class="fa fa-female text-danger" aria-hidden="true" style="font-size:80px;"></i>
+                                    <h5 class="mt-2"><a routerLink="womensclothing" class="text-dark text-decoration-none">{{data[3]}}</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Best Selling Items Section -->
+    <div class="card mt-5 w-100 p-3" style="max-width: 900px; background-color: #f8f9fa;">
+        <div class="card-body">
+            <h3 class="text-center text-success mb-4">Best Selling Items</h3>
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-4">
+                    <div class="card text-center p-3">
+                        <img src="https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg" width="230" height="205" alt="Item 1">
+                        <h5 class="mt-2">Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin</h5>
+                        <p class="text-muted">{{ convertPrice(599.99) | currency:selectedCurrency:'symbol':'1.2-2' }}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center p-3">
+                        <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="img-fluid rounded" alt="Item 2">
+                        <h5 class="mt-2">Mens Cotton Jacket</h5>
+                        <p class="text-muted">{{ convertPrice(59.99) | currency:selectedCurrency:'symbol':'1.2-2' }}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center p-3">
+                        <img src="https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg" width="210" height="205" alt="Item 3">
+                        <h5 class="mt-2">Rain Jacket Women Windbreaker Striped Climbing Raincoats</h5>
+                        <p class="text-muted">{{ convertPrice(39.99) | currency:selectedCurrency:'symbol':'1.2-2' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
